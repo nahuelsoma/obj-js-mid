@@ -300,13 +300,57 @@ Deep copy hace referencia a una función recursiva utilizada para crear copia de
 
 Se puede ver la función DeepCopy dentro de la carpeta /deepCopyConFuncionRecursiva de este repositorio.
 
-## Clase 10:
+## Clase 10: Abstracción con objetos literales y deep copy
 
-## Clase 11:
+### Object.seal()
 
-## Clase 12:
+Utilizar Object.seal() equivale a marcar cada uno de los elementos de nuestro objeto como "configurable: false" al definir una de sus propiedades con Object.defineProperty(). De esta forma los elementos de nuestro objeto se podrán modificar pero no eliminar.
 
-## Clase 13:
+### Objct.isSealed()
+
+El método Object.isSealed() verifica si el objeto está sellado.
+
+#### Sintaxis
+
+Object.isSealed(obj)
+
+#### Parámetros
+
+- obj: El objeto que debe ser revisado.
+
+### Object.freeze()
+
+Utilizar Object.freeze() equivale a marcar cada uno de los elementos de nuestro objeto como "configurable: false" y "writable: false" al definir una de sus propiedades con Object.defineProperty(). De esta forma los elementos de nuestro objeto no se podrán modificar ni eliminar.
+
+### Objct.isFrozen()
+
+El método Object.isFrozen() verifica si el objeto está "congelado", es decir, si se le ha aplicado el método Object.freeze().
+
+#### Sintaxis
+
+Object.isFrozen(obj)
+
+#### Parámetros
+
+- obj: El objeto que debe ser revisado.
+
+## Clase 11: Factory pattern y RORO
+
+El script de esta clase se puede ver dentro de la carpeta /factoryPaternRORO de dicho repositorio.
+
+Aquí se crea una función Factory pattern para crear estudiantes con el nombre de createStudent.
+
+Dicha función requiere de un objeto como argumento para crear el nuevo objeto. Pero existen valores que consideramos obligatorios al momento de crear dicho objeto.
+
+Para que la función devuelva por defecto un error diciendo que "El parámetro es obligatorio", creamos la función requiredParam y se la asignamos por defecto a los elementos que consideramos obligatorios.
+
+De esta forma, si se llama a la función createStudent sin los parametros obligatorios, se mostrará el error antes mencionado.
+
+## Clase 12: Module pattern y namespaces: propiedades privadas en JavaScript
+
+En el script correspondiente a la clase, el cual se puede encontrar en la carpeta /modulePatternNamespaces de este repopsitorio se muestra como se pueden asignar propiedades y métodos privados y públicos en el caso de que se trabaje con Factory patterns para crear nuevos objetos.
+
+## Clase 13: Getters y setters
 
 ## Clase 14:
 
