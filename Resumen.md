@@ -44,6 +44,8 @@ Object.entries(modelo)
 // 2: (2) ["age", 28]
 // ]
 
+El método Object.entries() devuelve una matriz de pares propios de una propiedad enumerable [key, value] de un objeto dado, en el mismo orden que es proporcionado por for...in (La diferencia es que un bucle for-in enumera las propiedades en la cadena de prototipos).
+
 #### Object.getOwnPropertyDescriptors()
 
 Nos devuelve todas las propiedades de los objetos, sus keys y values, y los atributos writable, configurable y enumerable. Esta es la forma que tiene JavaScript para limitar el acceso a modificar los atributos y métodos de nuestros objetos.
@@ -348,18 +350,75 @@ De esta forma, si se llama a la función createStudent sin los parametros obliga
 
 ## Clase 12: Module pattern y namespaces: propiedades privadas en JavaScript
 
-En el script correspondiente a la clase, el cual se puede encontrar en la carpeta /modulePatternNamespaces de este repopsitorio se muestra como se pueden asignar propiedades y métodos privados y públicos en el caso de que se trabaje con Factory patterns para crear nuevos objetos.
+En el script correspondiente a la clase, el cual se puede encontrar en la carpeta /modulePatternNamespaces de este repopsitorio, se muestra como se pueden asignar propiedades y métodos privados y públicos en el caso de que se trabaje con Factory patterns para crear nuevos objetos.
+
+Para ello se crean dos funciones, una para devolver el valor privado y otra para modificarlo. A su vez, a estas dos funciones se le asignan propiedades de writable y configurable en false para que no puedan ser editadas ni eliminadas.
 
 ## Clase 13: Getters y setters
 
-## Clase 14:
+Se reemplazan las funciones utilizadas en la clase anterior por los métodos get y set. Estos, como se ha visto anteriormente, son utilizados para obtener el valor de una variable privada y para modificarla en caso de que sea necesario.
 
-## Clase 15:
+Además, dentro del set se pueden agregar condiciones a cumplir para que el valor sea modificado, y en caso de que estas condiciones no se cumplan el programa retorne un error o mensaje determinado.
 
-## Clase 16:
+Los scripts correspondientes a esta clase se pueden observar dentro de la carpeta /getSet de este repositorio.
 
-## Clase 17:
+### Como fuciona internamente el get y set
 
-## Clase 18:
+Al evaluar el Object.getOwnPropertyDescriptors(obj) de nuestro objeto, se puede ver que dentro de la propiedad configurada con get y set ya no se encuentran las características de value ni writable. En vez de ello se observan dos nuevos métodos, el get y set.
+
+### Consideración adicional
+
+En caso de que la propiedad privada se quiera modificar mediante el método Object.defineProperty(), dicha propiedad será modificada en value y pasará a tener dicho value y su writable correspondiente quedará en false.
+
+## Clase 14: Qué es duck typing
+
+El duck typing es la forma de progamar donde identificamos a nuestros elementos dependiendo de los métodos y atributos que tengan por dentro.
+
+## Clase 15: Duck typing en JavaScript
+
+En esta clase aplicamos el Duck typing para establecer condiciones en nuestro setter de learningPaths. De esta forma identificamos el elemento que se le esta asignando a la variable y en caso de que no cumpla con los requerimientos establecidos, la misma no será modificada.
+
+En el caso de que el elemento que se utilice como atributo no cumpla con las condiciones, en cada una de las verificaciones se devuelve un error para enunciar lo acontecido.
+
+En este caso solo verificamos si las propiedades del elemento son las establecidas en las condiciones, pero no estamos evaluando la procedencia de esta información.
+
+Todo esto se puede observar en el script correspondiente a esta clase en la carpeta /duckTypingEnJS de este repositorio.
+
+## Clase 16: Instance Of en JavaScript con instancias y prototipos
+
+### instanceof
+
+El operador instanceof verifica si un objeto en su cadena de prototipos contiene la propiedad prototype de un constructor.
+
+#### Sintaxis
+
+objeto instanceof constructor
+
+#### Parámetros
+
+- objeto: Objeto a verificar.
+- constructor: Función contra la que se hará la verificación.
+
+La verificación de "instanceof" es útil para diferenciar objetos que son instancias de un determinado prototipo, contra aquellos objetos que contienen los mismos elementos pero no son instacias de este prototipo de referencia.
+
+Se puede observar como implementarlo en el script correspondiente a esta clase en la carpeta /instanceof de este repositorio.
+
+## Clase 17: Atributos y métodos privados en prototipos
+
+Se utiliza get y set para protejer los atributos o métodos que consideremos "privados". Dentro del set también se pueden incluir las condiciones que sean necesarias para que la modificación del valor del elemento se efectue.
+
+Se puede ver un ejemplo de esto en los scripts de la carpeta /atributosMetodosPrivados de este repositorio.
+
+Para asignar los métodos y atributos privados en Clases (ahora en ES21) seran con un #. El propio JavaScript aplica la encapsulación de privacidad de estas características de clase.
+
+class ClassWithPrivateField {
+#privateField;
+}
+
+## Clase 18: Creando métodos estáticos en JavaScript
+
+Se crean métodos estáticos. Se puede ver el script en la carpeta /metodosEstaticos de este repositorio. (REPASAR)
 
 ## Clase 19:
+
+Cierre del curso.
